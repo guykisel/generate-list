@@ -76,3 +76,6 @@ all = true
 show_error_codes = true
 ignore_missing_imports = true
 no_strict_optional = true
+
+[tool.yamlfix]
+line_length = 120
