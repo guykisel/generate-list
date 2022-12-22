@@ -1,34 +1,78 @@
 [project]
 name = "generate-list"
+description = "generate awesome lists"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
 dynamic = ["version"]
 
+dependencies = [
+    "typer",
+    "rich",
+    "linkchecker",
+    "pydantic",
+    "mkdocs",
+]
+
+[project.urls]
+Tracker = "https://github.com/guykisel/generate-list/issues"
+Source = "https://github.com/guykisel/generate-list"
 
 [tool.hatch]
+
+[tool.hatch.build]
+exclude = [
+    "/.github",
+    ".gitattributes",
+]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "node-and-timestamp"
+version_scheme = "post-release"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-
+[tool.black]
+line-length = 120
+target-version = ["py311"]
 
 [tool.ruff]
+line-length = 120
+target-version = "py311"
+fix = true
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    # "I",  # isort
-    "C",  # flake8-comprehensions
-    "B",  # flake8-bugbear
+    "E", # pycodestyle errors
+    "W", # pycodestyle warnings
+    "F", # pyflakes
+    "I", # isort
+    "C", # flake8-comprehensions
+    "B", # flake8-bugbear
+    "UP", # pyupgrade
+    "SIM", # flake8-simplify
+    "RET", # flake8-return
+    "PGH", # pygrep-hooks
+    "RUF", # ruff
 ]
 ignore = [
-    "E501",  # line too long, handled by black
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
+    "E501", # line too long, handled by black
+    "B008", # do not perform function calls in argument defaults
+    "C901", # too complex
 ]
 
 [tool.ruff.isort]
 force-wrap-aliases = true
 combine-as-imports = true
+
+
+[tool.pycln]
+all = true
+
+[tool.mypy]
+show_error_codes = true
+ignore_missing_imports = true
+no_strict_optional = true
