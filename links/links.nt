@@ -1,0 +1,25 @@
+Jenkins CI:
+    url: https://www.jenkins.io/
+    repo: https://github.com/jenkinsci/jenkins
+    docs: https://www.jenkins.io/doc/
+    license: MIT
+    tags:
+        - ci
+        - open source
+        - java
+        - groovy
+The novice game developer’s guide to DevOps:
+    url: https://www.eficode.com/blog/the-novice-game-developers-guide-to-devops
+    tags:
+        - blog
+        - tutorial
+        - intro
+Hatch:
+    url: https://hatch.pypa.io/
+    repo: https://github.com/pypa/hatch
+    docs: https://hatch.pypa.io/
+    license: MIT
+    tags:
+        - python
+        - dependency management
+        - packaging

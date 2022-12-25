@@ -12,11 +12,21 @@ dependencies = [
     "linkchecker",
     "pydantic",
     "mkdocs",
+    "nestedtext",
 ]
+
+[project.scripts]
+generate-list = "generate_list.main:main"
 
 [project.urls]
 Tracker = "https://github.com/guykisel/generate-list/issues"
 Source = "https://github.com/guykisel/generate-list"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "hatch"
+]
 
 [tool.hatch]
 
@@ -27,7 +37,7 @@ exclude = [
 ]
 
 [tool.hatch.version]
-source = "vcs"
+path = "generate_list/__about__.py"
 
 [tool.hatch.version.raw-options]
 local_scheme = "node-and-timestamp"
